@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.padding {
+    padding: 0 350px 0 30px;
+}
+.top-bar-gradient {
+    background: linear-gradient( 115deg, #ddd3d8 57.7%, black 57.7%);
+}
+
+.padding-pokeball {
+    padding: 5px 20px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
