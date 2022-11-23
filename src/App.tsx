@@ -7,7 +7,9 @@ function App() {
     return (
         <div>
             <TopBar title="Pokédex"/>
-            <Sections/>
+            <div className="fixed bottom-0 lg:h-[50px] w-full bg-black items-center py-3 lg:pr-12">
+                <Sections/>
+            </div>
         </div>
     );
 }
