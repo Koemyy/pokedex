@@ -13,6 +13,10 @@
     padding: 5px 20px;
 }
 
+.padding-bar {
+    padding: 0 5px;
+}
+
 * {
     padding: 0;
     margin: 0;

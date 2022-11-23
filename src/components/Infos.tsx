@@ -15,6 +15,10 @@ const section = {
             'detail': 'Sort'
         },
         {
+            'nome': '+',
+            'detail': 'See Evaluation'
+        },
+        {
             'nome': 'B',
             'detail': 'Back'
         },
