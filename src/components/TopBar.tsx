@@ -10,14 +10,14 @@ function TopBar({title}: topBar) {
             <div className="flex justify-between items-center lg:w-[40%]">
                 <h1 className="font-lg font-bold">{title}</h1>
                 <div className="flex items-center align-middle text-white">
-                    <div className="flex padding-pokeball rounded-lg ml-5 bg-gray-500">
+                    <div className="flex padding-pokeball items-center align-middle justify-center rounded-lg ml-5 bg-gray-500">
                         <img src={pokeball}
                              alt="A pokeball icon"
                              style={{width: "30px", marginRight: "10px"}}
                         />
                         <p>438</p>
                     </div>
-                    <div className="flex padding-pokeball rounded-lg ml-5 bg-gray-500">
+                    <div className="flex padding-pokeball items-center align-middle justify-center rounded-lg ml-5 bg-gray-500">
                         <img src={pokeball} alt="A pokeball icon"
                              style={{width: "30px", marginRight: "10px"}}
                         />
@@ -25,7 +25,7 @@ function TopBar({title}: topBar) {
                     </div>
                 </div>
             </div>
-            <p style={{color: "white"}}>A -&gt; Z</p>
+            <p className="text-white flex absolute right-0 lg:pr-[350px]">A -&gt; Z</p>
         </div>
     )
 }
