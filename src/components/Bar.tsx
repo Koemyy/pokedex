@@ -5,9 +5,9 @@ interface Bar {
 
 function Bar({title, detail}: Bar) {
     return (
-        <div className="inline-flex text-white cursor-pointer justify-center items-center lg:px-5 px-1 lg:first-of-type:pl-6">
+        <div className="inline-flex text-white cursor-pointer justify-center items-center lg:pl-5 px-1">
             <p className="rounded-lg padding-bar bg-white text-black">{title}</p>
-            <p className="px-1">{detail}</p>
+            <p className="lg:px-1">{detail}</p>
         </div>
     )
 }
