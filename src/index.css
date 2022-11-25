@@ -16,6 +16,9 @@
 .padding-bar {
     padding: 0 5px;
 }
+.card-gradient {
+    background: linear-gradient(115deg, #fff1ff 48%, #f3533b 48%, #fb7248 55%);
+}
 
 * {
     padding: 0;
