@@ -1,26 +1,42 @@
 import {useEffect, useState} from "react";
+import PokemonCard from './PokemonCards';
+import axios from 'axios';
 
-interface PokeList {
-    title: string,
-    detail: string
-}
-
-function PokeList({title, detail}: PokeList) {
-    const [allPokemons, setAllPokemons] = useState([]);
+function PokeList() {
+    const [allPokemons, setAllPokemons] = useState<any[]>([]);
     const getAllPokemons = async () => {
-        const res = await fetch ("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649");
-        const data = await res.json();
-        setAllPokemons(data.results)
+        var endpoints = [];
+        for (var i = 1; i < 659; i++) {
+            endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+        }
+        axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setAllPokemons(res));
     }
+
     console.log(allPokemons)
     useEffect(() => {
         getAllPokemons()
     }, [])
     return (
-        <div>
-             <div>
-
-             </div>
+        <div className="w-full h-[100vh] card-gradient">
+            <div className="h-[86vh] absolute top-[80px] right-[30px] overflow-y-scroll w-full">
+                <div>
+                    {allPokemons.map((pokemonStats, index) => {
+                        return (
+                            <PokemonCard
+                                key={index}
+                                // @ts-ignore
+                                id={pokemonStats.data.id}
+                                image={pokemonStats.data.sprites.front_default}
+                                name={pokemonStats.data.name}
+                                type={pokemonStats.data.types[0].type.name}
+                                weight={pokemonStats.data.weight}
+                                height={pokemonStats.data.height}
+                                stats={pokemonStats.data.stats}
+                            />
+                        )
+                    })}
+                </div>
+            </div>
         </div>
     )
 }
