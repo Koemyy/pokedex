@@ -1,16 +1,15 @@
 import React from 'react';
 import TopBar from "./components/TopBar";
-import './App.css'
-import {Sections} from './components/Infos';
+import Bar from '../src/components/Bar';
 import PokeList from "./components/PokeList";
 
 function App() {
     return (
         <div>
-            <TopBar title="Pokédex"/>
+            <TopBar/>
             <PokeList/>
-            <div className="fixed bottom-0 lg:h-[50px] w-full bg-black items-center py-3 lg:pr-12">
-                <Sections/>
+            <div className="fixed bottom-0 w-full items-center py-3">
+                <Bar/>
             </div>
         </div>
     );
