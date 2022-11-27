@@ -19,7 +19,7 @@ function PokeList() {
     }, [])
     return (
         <div className="w-full h-[100vh] bg-pokemon">
-            <div className="h-[86vh] absolute top-[80px] right-[30px] overflow-y-scroll w-full">
+            <div className="h-[86vh] absolute top-[80px] lg:right-[30px] overflow-y-scroll w-full">
                 {allPokemons.map((pokemonStats, index) => {
                     return (
                         <PokemonCard

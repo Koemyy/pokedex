@@ -26,32 +26,32 @@ function Modal({onClick, id, name, image, type, weight, height, stats}: Modal) {
                         X
                     </div>
                 </div>
-                <img className="w-full" src={image} alt={name}/>
+                <img className="w-full max-w-[300px]" src={image} alt={name}/>
                 <div className="flex w-full">
-                    <div className="stats-left bg-gray-200 text-center">
+                    <div className="flex flex-col w-[50%] text-lg text-center bg-gray-200 text-center">
                         <p>Type</p>
                         <p>Height</p>
                         <p>Weight</p>
                     </div>
-                    <div className="stats-right bg-white text-center">
+                    <div className="flex flex-col w-[50%] text-lg bg-white text-center bg-white text-center">
                         <p className="first-letter:uppercase">{type}</p>
                         <p>{height} cm</p>
                         <p>{weight} lbs</p>
                     </div>
                 </div>
-                <div className="base-stats">
-                    <div>
+                <div className="flex w-full bg-white">
+                    <div className="w-full">
                         {
                             // @ts-ignore
-                            stats.map((stats, index) => <p key={index} className="first-letter:uppercase">
+                            stats.map((stats, index) => <p key={index} className="first-letter:uppercase text-center">
                                 {stats.stat.name}
                             </p>)
                         }
                     </div>
-                    <div>
+                    <div className="w-full">
                         {
                             // @ts-ignore
-                            stats.map((stats, index) => <p key={index}>
+                            stats.map((stats, index) => <p className="text-center" key={index}>
                                 {stats.base_stat}
                             </p>)
                         }
