@@ -17,25 +17,23 @@ function PokeList() {
         getAllPokemons()
     }, [])
     return (
-        <div className="w-full h-[100vh] card-gradient">
+        <div className="w-full h-[100vh] bg-orange-500">
             <div className="h-[86vh] absolute top-[80px] right-[30px] overflow-y-scroll w-full">
-                <div>
-                    {allPokemons.map((pokemonStats, index) => {
-                        return (
-                            <PokemonCard
-                                key={index}
-                                // @ts-ignore
-                                id={pokemonStats.data.id}
-                                image={pokemonStats.data.sprites.front_default}
-                                name={pokemonStats.data.name}
-                                type={pokemonStats.data.types[0].type.name}
-                                weight={pokemonStats.data.weight}
-                                height={pokemonStats.data.height}
-                                stats={pokemonStats.data.stats}
-                            />
-                        )
-                    })}
-                </div>
+                {allPokemons.map((pokemonStats, index) => {
+                    return (
+                        <PokemonCard
+                            key={index}
+                            // @ts-ignore
+                            id={pokemonStats.data.id}
+                            image={pokemonStats.data.sprites.front_default}
+                            name={pokemonStats.data.name}
+                            type={pokemonStats.data.types[0].type.name}
+                            weight={pokemonStats.data.weight}
+                            height={pokemonStats.data.height}
+                            stats={pokemonStats.data.stats}
+                        />
+                    )
+                })}
             </div>
         </div>
     )
