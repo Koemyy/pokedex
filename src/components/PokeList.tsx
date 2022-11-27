@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import PokemonCard from './PokemonCards';
 import axios from 'axios';
+import bg_pokemon from '../images/bg_pokemon.jpg';
 
 function PokeList() {
     const [allPokemons, setAllPokemons] = useState<any[]>([]);
@@ -17,7 +18,7 @@ function PokeList() {
         getAllPokemons()
     }, [])
     return (
-        <div className="w-full h-[100vh] bg-orange-500">
+        <div className="w-full h-[100vh] bg-pokemon">
             <div className="h-[86vh] absolute top-[80px] right-[30px] overflow-y-scroll w-full">
                 {allPokemons.map((pokemonStats, index) => {
                     return (
