@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
     padding: 0;
     margin: 0;
@@ -26,8 +25,12 @@
 }
 
 ::-webkit-scrollbar {
-    width: 7px;
-    background-color: #910305 !important;
+    width: 12px;
+    background-color: orange !important;
+}
+
+::-webkit-scrollbar {
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -66,7 +69,7 @@
     width: 450px;
     height: 75vh;
     bottom: 10%;
-    right: 65%;
+    right: 55%;
     z-index: 2;
 }
 
