@@ -24,48 +24,54 @@ function PokemonCard({id, image, name, type, weight, height, stats}: Card) {
         setModalIsOpen(false);
     }
 
-    function mobileTest() {
+    function mobileTestFalse() {
         if (window.innerWidth >= 1020) {
             setIsShown(false)
+        }
+    }
+
+    function mobileTestTrue() {
+        if (window.innerWidth >= 1020) {
+            setIsShown(true)
         }
     }
 
     return (
         <div className="flex lg:justify-end md:overflow-hidden">
             {isShown && (
-                <div className="show">
-                    <div style={{}} className="stat-container-title">
-                        <img className="w-20" src={image} alt={name}/>
-                        <p className="w-180px text-black">No. {id}</p>
+                <div className="fixed flex items-center justify-end flex-col w-[400px] h-[70vh] bottom-[12%] right-[55%] z-10">
+                    <div className="flex bg-orange-500 justify-center align-middle items-center font-bold text-lg text-white pt-2 ml-[5%] pt-0 pb-[10px] w-[110%] h-[65px] rounded-3xl">
+                        <img className="w-12 ml-2" src={image} alt={name}/>
+                        <p className="w-180px text-black pl-2">No. {id}</p>
                         <p className="pl-20 first-letter:uppercase">{name}</p>
-                        <img className="pokeball-title" src={pokeball} alt="A pokeball icon"/>
+                        <img className="w-[40px] ml-auto pr-2" src={pokeball} alt="A pokeball icon"/>
                     </div>
                     <img className="w-full" src={image} alt={name}/>
                     <div className="flex w-full">
-                        <div className="stats-left bg-gray-200 text-center">
+                        <div className="flex flex-col w-[50%] text-lg bg-gray-200 text-center">
                             <p>Type</p>
                             <p>Height</p>
                             <p>Weight</p>
                         </div>
-                        <div className="stats-right bg-white text-center">
+                        <div className="flex flex-col w-[50%] text-lg bg-white text-center">
                             <p className="first-letter:uppercase">{type}</p>
                             <p>{height} cm</p>
                             <p>{weight} lbs</p>
                         </div>
                     </div>
-                    <div className="base-stats">
-                        <div>
+                    <div className="flex w-full bg-white">
+                        <div className="w-full">
                             {
                                 // @ts-ignore
-                                stats.map((stats, index) => <p key={index} className="first-letter:uppercase">
+                                stats.map((stats, index) => <p key={index} className="first-letter:uppercase text-center">
                                     {stats.stat.name}
                                 </p>)
                             }
                         </div>
-                        <div>
+                        <div className="w-full">
                             {
                                 // @ts-ignore
-                                stats.map((stats, index) => <p key={index}>
+                                stats.map((stats, index) => <p className="text-center" key={index}>
                                     {stats.base_stat}
                                 </p>)
                             }
@@ -73,12 +79,11 @@ function PokemonCard({id, image, name, type, weight, height, stats}: Card) {
                     </div>
                 </div>
             )}
-
             <div
-                className="hover:bg-gradient-to-bl ml-10 mt-5 justify-center items-center align-middle from-orange-300 hover:even:text-white to-orange-500 rounded-3xl flex lg:items-center lg:w-[38%] lg:h-[55px] lg:mt-5 lg:mr-4 lg:p-10 text-base font-bold"
-                onMouseDown={modalHandler}
-                onMouseEnter={() => setIsShown(true)}
-                onMouseLeave={() => setIsShown(false)}
+                className="hover:bg-gradient-to-bl ml-10 mt-5 justify-center align-middle from-orange-300 hover:even:text-white to-orange-500 rounded-3xl flex items-center md:w-full md:h-full lg:w-[38%] lg:h-[55px] lg:mt-5 lg:mr-4 lg:p-10 text-base font-bold"
+                onClick={modalHandler}
+                onMouseEnter={mobileTestTrue}
+                onMouseLeave={mobileTestFalse}
             >
                 <img src={image} alt={name}/>
                 <p className="lg:w-[270px]">No. {id}</p>
