@@ -24,14 +24,20 @@ function PokemonCard({id, image, name, type, weight, height, stats}: Card) {
         setModalIsOpen(false);
     }
 
+    function mobileTest() {
+        if (window.innerWidth >= 1020) {
+            setIsShown(false)
+        }
+    }
+
     return (
-        <div className="flex lg:justify-end lg:overflow-y-hidden">
+        <div className="flex lg:justify-end md:overflow-hidden">
             {isShown && (
                 <div className="show">
-                    <div className="stat-container-title">
+                    <div style={{}} className="stat-container-title">
                         <img className="w-20" src={image} alt={name}/>
                         <p className="w-180px text-black">No. {id}</p>
-                        <p className="pl-10 first-letter:uppercase">{name}</p>
+                        <p className="pl-20 first-letter:uppercase">{name}</p>
                         <img className="pokeball-title" src={pokeball} alt="A pokeball icon"/>
                     </div>
                     <img className="w-full" src={image} alt={name}/>
@@ -51,7 +57,7 @@ function PokemonCard({id, image, name, type, weight, height, stats}: Card) {
                         <div>
                             {
                                 // @ts-ignore
-                                stats.map((stats, index) => <p key={index}  className="first-letter:uppercase">
+                                stats.map((stats, index) => <p key={index} className="first-letter:uppercase">
                                     {stats.stat.name}
                                 </p>)
                             }
@@ -67,14 +73,16 @@ function PokemonCard({id, image, name, type, weight, height, stats}: Card) {
                     </div>
                 </div>
             )}
-            <div className="hover:bg-gradient-to-bl from-orange-300 hover:even:text-white to-orange-500 rounded-3xl flex items-center w-[38%] h-[55px] mt-5 mr-4 p-10 text-base font-bold"
+
+            <div
+                className="hover:bg-gradient-to-bl ml-10 mt-5 justify-center items-center align-middle from-orange-300 hover:even:text-white to-orange-500 rounded-3xl flex lg:items-center lg:w-[38%] lg:h-[55px] lg:mt-5 lg:mr-4 lg:p-10 text-base font-bold"
+                onMouseDown={modalHandler}
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}
-                onClick={modalHandler}
             >
-                <img className="" src={image} alt={name}/>
-                <p className="w-[270px]">No. {id}</p>
-                <p className="first-letter:uppercase">{name}</p>
+                <img src={image} alt={name}/>
+                <p className="lg:w-[270px]">No. {id}</p>
+                <p className="first-letter:uppercase px-5 lg:px-0">{name}</p>
                 <img className="ml-auto w-[40px]" src={pokeball} alt="A pokeball icon"/>
             </div>
             {modalIsOpen && (
