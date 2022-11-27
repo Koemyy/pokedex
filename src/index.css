@@ -24,9 +24,6 @@
 .padding-bar {
     padding: 0 5px;
 }
-.card-gradient {
-    background: linear-gradient(115deg, #fff1ff 48%, #f3533b 48%, #fb7248 55%);
-}
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -35,14 +32,7 @@
 
 ::-webkit-scrollbar-thumb {
     width: 7px;
-    background-color: #fb7248 !important;
-}
-
-.container {
-    position: relative;
-    display: flex;
-    justify-content: end;
-    margin-right: 20px;
+    background-color: #ffffff !important;
 }
 
 .right {
@@ -50,13 +40,14 @@
     align-items: center;
     width: 38%;
     height: 55px;
-    margin: 10px 0;
-    padding: 5px 20px;
+    margin: 10px;
+    margin-right: 20px;
+    padding: 45px 20px;
     font-size: 24px;
     font-weight: 700;
 }
 
-.right:hover {
+.poke-box {
     background: linear-gradient(135deg, #f0501d 40%, black 40%);
     border-radius: 50px;
     cursor: pointer;
@@ -70,11 +61,12 @@
     position: fixed;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: right;
     flex-direction: column;
     width: 450px;
     height: 75vh;
     bottom: 10%;
+    right: 65%;
     z-index: 2;
 }
 
@@ -148,4 +140,8 @@
 .stats :nth-child(1),
 .stats :nth-child(2) {
     border-bottom: 1px solid white;
+}
+
+.bg-pokemon {
+    background: url("./images/bg_pokemon.jpg");
 }
