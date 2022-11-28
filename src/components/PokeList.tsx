@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import PokemonCard from './PokemonCards';
 import axios from 'axios';
-import bg_pokemon from '../images/bg_pokemon.jpg';
 
 function PokeList() {
     const [allPokemons, setAllPokemons] = useState<any[]>([]);
@@ -13,7 +12,6 @@ function PokeList() {
         axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setAllPokemons(res));
     }
 
-    console.log(allPokemons)
     useEffect(() => {
         getAllPokemons()
     }, [])
